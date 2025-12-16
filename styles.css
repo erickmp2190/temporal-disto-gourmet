@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+body {
+  font-family: Inter;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* ← Cambio clave: no permite envolver en grandes pantallas */
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem; /* Espacio bonito entre foto y texto */
+  margin: 4rem 0; /* Opcional: separación entre secciones */
+}
+
+.left {
+  flex: 1 1 45%; /* Toma hasta 45%, pero puede crecer/shrink */
+  max-width: 50%;
+}
+
+.right {
+  flex: 1 1 55%; /* Un poco más de espacio para el texto */
+  min-width: 0; /* Evita problemas con texto largo */
+}
+
+.left img,
+.right img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sub {
+  font-size: 0.8em;
+  font-weight: 300;
+  display: block;
+}
+
+.description h1 {
+  margin-bottom: 0;
+}
+
+.margin-left {
+  margin-left: 1rem;
+}
+
+.text-group {
+  margin: 50px auto;
+}
+
+.text-group p:first-child {
+  margin-bottom: 0;
+}
+
+.text-group p {
+  margin-top: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cubre la celda, recorta si es necesario (sin deformar) */
+  /* Alternativa: object-fit: contain;   /* Muestra la imagen completa con barras si no encaja */
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .group {
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    max-width: 100%;
+    flex-basis: auto;
+  }
+
+  .left {
+    margin-bottom: 2rem;
+  }
+}
